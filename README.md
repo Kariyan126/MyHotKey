@@ -1,6 +1,9 @@
 # MyHotKey
 MyHotKey is an application that allows you to shutdown, sleep or restart your windows pc using hotkey.
 
+## Downloads
+[Releases](https://github.com/Kariyan126/MyHotKey/releases/tag/v1.0.0)
+
 ## System requirements:
 You need to register this app in the registry to make it a startup application.
 1. Open the registry
