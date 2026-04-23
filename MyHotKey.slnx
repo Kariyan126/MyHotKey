@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="MyHotKey/MyHotKey.vcxproj" Id="1aae61ae-8105-47fb-a53e-000edf833db1" />
+</Solution>
