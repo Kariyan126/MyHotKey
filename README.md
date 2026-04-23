@@ -10,7 +10,8 @@ You need to register this app in the registry to make it a startup application.
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 ```
 3. Make a new value. The name is MyHotKey and the value is the path which you locate this app.
-4. Completion
+4. Restart your pc.
+5. Completion.
 
 ## HotKey
 You can use following hotkey.
