@@ -9,7 +9,6 @@
 #define HOTKEY_RESTART 3
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
-BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam);
 
 int WINAPI WinMain(
 	HINSTANCE hInstance,
