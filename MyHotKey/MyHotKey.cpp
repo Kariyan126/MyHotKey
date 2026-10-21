@@ -1,5 +1,4 @@
 #include <Windows.h>
-#include <tchar.h>
 #include <WinUser.h>
 #include <powrprof.h>
 #pragma comment(lib, "PowrProf.lib")
