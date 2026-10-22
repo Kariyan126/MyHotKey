@@ -6,6 +6,8 @@
 #define HOTKEY_SHUTDOWN 1
 #define HOTKEY_SLEEP 2
 #define HOTKEY_RESTART 3
+#define HOTKEY_REMOVE_D_DRIVE 4
+#define HOTKEY_REMOVE_E_DRIVE 5
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -16,10 +18,10 @@ int WINAPI WinMain(
 	int nCmdShow
 )
 {
-	HANDLE hMutex = CreateMutex(NULL, TRUE, L"MyUniqueAppMutexName");
+	HANDLE hMutex = CreateMutex(NULL, TRUE, L"MyHotkey");
 	if (GetLastError() == ERROR_ALREADY_EXISTS) return 0;
 
-	TCHAR szAppName[] = TEXT("Win32API_test");
+	TCHAR szAppName[] = TEXT("MyHotkey");
 	WNDCLASS wc;
 	HWND hwnd;
 	MSG msg;
@@ -39,7 +41,7 @@ int WINAPI WinMain(
 
 	hwnd = CreateWindow(
 		szAppName,
-		TEXT("Win32API_test"),
+		TEXT("MyHotkey"),
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT,
 		CW_USEDEFAULT,
@@ -58,7 +60,8 @@ int WINAPI WinMain(
 	RegisterHotKey(hwnd, HOTKEY_SHUTDOWN, MOD_CONTROL, VK_F12);
 	RegisterHotKey(hwnd, HOTKEY_SLEEP, MOD_CONTROL | MOD_SHIFT | MOD_ALT, 'S');
 	RegisterHotKey(hwnd, HOTKEY_RESTART, MOD_CONTROL | MOD_SHIFT | MOD_ALT, 'R');
-
+	RegisterHotKey(hwnd, HOTKEY_REMOVE_D_DRIVE, MOD_SHIFT | MOD_WIN, 'D');
+	RegisterHotKey(hwnd, HOTKEY_REMOVE_E_DRIVE, MOD_SHIFT | MOD_WIN, 'E');
 
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
@@ -89,6 +92,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		case HOTKEY_RESTART:
 			ShellExecuteW(NULL, L"open", L"cmd.exe",L"/c shutdown /r /t 0", NULL, SW_HIDE);
+			break;
+
+		case HOTKEY_REMOVE_D_DRIVE:
+			ShellExecuteW(NULL, L"open", L"USB_Disk_Eject.exe", L"/c /REMOVELETTER D", NULL, SW_HIDE);
+			break;
+
+		case HOTKEY_REMOVE_E_DRIVE:
+			ShellExecuteW(NULL, L"open", L"USB_Disk_Eject.exe", L"/c /REMOVELETTER E", NULL, SW_HIDE);
 			break;
 		}
 		return 0;
