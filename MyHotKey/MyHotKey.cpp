@@ -83,7 +83,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		switch (wParam)
 		{
 		case HOTKEY_SHUTDOWN:
-			ShellExecuteW(NULL, L"open", L"shutdown.exe", L"/c /s /t 0", NULL, SW_HIDE);
+			ShellExecuteW(NULL, L"open", L"shutdown.exe", L"/s /t 0", NULL, SW_HIDE);
 			break;
 
 		case HOTKEY_SLEEP:
@@ -91,16 +91,16 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 			break;
 
 		case HOTKEY_RESTART:
-			ShellExecuteW(NULL, L"open", L"shutdown.exe",L"/c /r /t 0", NULL, SW_HIDE);
+			ShellExecuteW(NULL, L"open", L"shutdown.exe", L"/r /t 0", NULL, SW_HIDE);
 			break;
 
 		case HOTKEY_REMOVE_D_DRIVE:
-			ShellExecuteW(NULL, L"open", L"USB_Disk_Eject.exe", L"/c /REMOVELETTER D", NULL, SW_HIDE);
+			ShellExecuteW(NULL, L"open", L"USB_Disk_Eject.exe", L"/REMOVELETTER D", NULL, SW_HIDE);
 			MessageBeep(MB_ICONINFORMATION);
 			break;
 
 		case HOTKEY_REMOVE_E_DRIVE:
-			ShellExecuteW(NULL, L"open", L"USB_Disk_Eject.exe", L"/c /REMOVELETTER E", NULL, SW_HIDE);
+			ShellExecuteW(NULL, L"open", L"USB_Disk_Eject.exe", L"/REMOVELETTER E", NULL, SW_HIDE);
 			MessageBeep(MB_ICONINFORMATION);
 			break;
 		}
